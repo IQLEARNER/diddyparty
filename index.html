@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Diddy Party Locator</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(to right, #ffccff, #ccffff);
+      text-align: center;
+      padding-top: 100px;
+    }
+    h1 {
+      font-size: 3em;
+      color: #333;
+    }
+    #address {
+      font-size: 2em;
+      margin-top: 50px;
+      color: #444;
+    }
+  </style>
+</head>
+<body>
+  <h1>🎉 Today's Diddy Party Spot</h1>
+  <div id="address">Loading...</div>
+
+
+  <script>
+    const addresses = [
+      "Empire Ballroom, Las Vegas, NV",
+      "Soho House, West Hollywood, CA",
+      "The Box, New York, NY",
+      "Club LIV, Miami Beach, FL",
+      "The Nice Guy, Los Angeles, CA",
+      "Puffy's Penthouse, Manhattan, NY",
+      "Rooftop at The Standard, Downtown LA",
+      "Secret Warehouse, Brooklyn, NY"
+    ];
+
+
+    function getDailyIndex() {
+      const today = new Date();
+      const seed = today.getFullYear() * 10000 + (today.getMonth() + 1) * 100 + today.getDate();
+      return seed % addresses.length;
+    }
+
+
+    document.getElementById("address").textContent = addresses[getDailyIndex()];
+  </script>
+</body>
+</html>
